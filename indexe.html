@@ -12,7 +12,14 @@
 
   
    <meta charset="utf-8">
-	<script src="babylon.custom.js"></script>
+   		<script type="text/javascript" src="three.min.js" ></script>
+
+		<script type="text/javascript" src="MTLLoader.js" ></script>
+		<script type="text/javascript" src="OBJLoader.js" ></script>
+		   <script src="OrbitControls.js"></script>
+
+		<script type="text/javascript" src="demo.js" ></script>
+
 	    <style>
         html, body {
             width:100%;
@@ -31,6 +38,8 @@
 			margin  : 0;
             padding : 0;
             touch-action: none;
+			   position: absolute;
+			bottom: -80%;
         }
     </style>
 
@@ -41,7 +50,7 @@
 <body>
 <header class="container">
        <div class="row">   
-       <h1 class="col-sm-4">Pegazuz(nume in curs de delet) <b>E</b>/h1>
+       <h1 class="col-sm-4">Pegazuz(nume in curs de delet) <b>E</b></h1>
        <nav class= "col-sm-8 text-right">
          <p ><a href="index.html" style="text-decoration:none;"> Romana</a></p>
          <p ><a href="indexe.html" style="text-decoration:none;">English</a></p>
@@ -108,11 +117,11 @@
 <div class="row text-center">
 	<h2>Model 3d ce reprezinta chestii va rugam ignorati schimbam </h2><br>
 </div>
-<script src="../build/three.js"></script>
-<script src="js/loaders/OBJLoader.js"></script>
 
-  <canvas id="renderCanvas"></canvas>
- <script src="viewer.js"></script>
+
+<div id="frame" style="height: 70%;">
+ <canvas id="renderCanvas"></canvas>
+</div>
   
   <footer class="container">
     <div class="row">
