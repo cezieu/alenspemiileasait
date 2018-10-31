@@ -6,9 +6,9 @@ var keyboard = {};
 
 var USE_WIREFRAME = false;
 function getRWidth(){
+if(window.matchMedia("(orientation: portrait)").matches) return window.screen.height;
+else return window.screen.width;
 
-	if(window.screen.orientation!=0 && window.screen.orientation!=180) return window.screen.height;
-	else return window.screen.width;
 }
 var loadingScreen = {
 	scene: new THREE.Scene(),
