@@ -51,11 +51,11 @@ THREE.OrbitControls = function ( object, domElement ) {
 	// This option actually enables dollying in and out; left as "zoom" for backwards compatibility.
 	// Set to false to disable zooming
 	this.enableZoom = true;
-	this.zoomSpeed =0.01;
+	this.zoomSpeed =0.003;
 
 	// Set to false to disable rotating
 	this.enableRotate = true;
-	this.rotateSpeed =0.01;
+	this.rotateSpeed =0.001;
 
 	// Set to false to disable panning
 	this.enablePan = false;

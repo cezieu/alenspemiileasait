@@ -1,6 +1,5 @@
 var scene, camera, renderer, mesh;
 var meshFloor, ambientLight, light;
-
 var crate, crateTexture, crateNormalMap, crateBumpMap;
 
 var keyboard = {};
@@ -20,19 +19,9 @@ var RESOURCES_LOADED = false;
 
 // Models index
 var models = {
-	tent: {
-		obj:"models/Tent_Poles_01.obj",
-		mtl:"models/Tent_Poles_01.mtl",
-		mesh: null
-	},
-	campfire: {
-		obj:"models/Campfire_01.obj",
-		mtl:"models/Campfire_01.mtl",
-		mesh: null
-	},
-	pirateship: {
-		obj:"models/Pirateship.obj",
-		mtl:"models/Pirateship.mtl",
+	tastatura: {
+		obj:"models/tastatura.obj",
+		mtl:"models/tastatura.mtl",
 		mesh: null
 	}
 };
@@ -46,7 +35,7 @@ function init(){
 	camera = new THREE.PerspectiveCamera(90, window.screen.width/720, 0.1, 1000);
 
 
-	loadingScreen.box.position.set(0,0,5);
+	//loadingScreen.box.position.set(0,0,5);
 	loadingScreen.camera.lookAt(loadingScreen.box.position);
 	loadingScreen.scene.add(loadingScreen.box);
 
@@ -60,23 +49,13 @@ function init(){
 		onResourcesLoaded();
 	};
 
-
-	mesh = new THREE.Mesh(
-		new THREE.BoxGeometry(1,1,1),
-		new THREE.MeshPhongMaterial({color:0xff4444, wireframe:USE_WIREFRAME})
-	);
-	mesh.position.y += 1;
-	mesh.receiveShadow = true;
-	mesh.castShadow = true;
-	scene.add(mesh);
-
-	meshFloor = new THREE.Mesh(
+/*	meshFloor = new THREE.Mesh(
 		new THREE.PlaneGeometry(20,20, 10,10),
 		new THREE.MeshPhongMaterial({color:0xffffff, wireframe:USE_WIREFRAME})
 	);
 	meshFloor.rotation.x -= Math.PI / 2;
 	meshFloor.receiveShadow = true;
-	scene.add(meshFloor);
+	scene.add(meshFloor);*/
 
 
 	ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
@@ -88,26 +67,6 @@ function init(){
 	light.shadow.camera.near = 0.1;
 	light.shadow.camera.far = 25;
 	scene.add(light);
-
-
-	var textureLoader = new THREE.TextureLoader(loadingManager);
-	crateTexture = textureLoader.load("crate0/crate0_diffuse.jpg");
-	crateBumpMap = textureLoader.load("crate0/crate0_bump.jpg");
-	crateNormalMap = textureLoader.load("crate0/crate0_normal.jpg");
-
-	crate = new THREE.Mesh(
-		new THREE.BoxGeometry(3,3,3),
-		new THREE.MeshPhongMaterial({
-			color:0xffffff,
-			map:crateTexture,
-			bumpMap:crateBumpMap,
-			normalMap:crateNormalMap
-		})
-	);
-	scene.add(crate);
-	crate.position.set(2.5, 3/2, 2.5);
-	crate.receiveShadow = true;
-	crate.castShadow = true;
 
 	// Load models
 	// REMEMBER: Loading in Javascript is asynchronous, so you need
@@ -145,13 +104,13 @@ function init(){
 	camera.position.set(0, 0, -8);
 	camera.lookAt(new THREE.Vector3(0,0,0));
 
-	renderer = new THREE.WebGLRenderer( { canvas: renderCanvas } );
+	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.screen.width, 720)
 
 	renderer.shadowMap.enabled = true;
 	renderer.shadowMap.type = THREE.BasicShadowMap;
 
-	document.body.appendChild(renderer.domElement);
+	document.getElementById("frame").appendChild(renderer.domElement);
 
 	animate();
 }
@@ -160,28 +119,12 @@ function init(){
 function onResourcesLoaded(){
 
 	// Clone models into meshes.
-	meshes["tent1"] = models.tent.mesh.clone();
-	meshes["tent2"] = models.tent.mesh.clone();
-	meshes["campfire1"] = models.campfire.mesh.clone();
-	meshes["campfire2"] = models.campfire.mesh.clone();
-	meshes["pirateship"] = models.pirateship.mesh.clone();
+	meshes["tastatura"] = models.tastatura.mesh.clone();
 
 	// Reposition individual meshes, then add meshes to scene
-	meshes["tent1"].position.set(-5, 0, 4);
-	scene.add(meshes["tent1"]);
-
-	meshes["tent2"].position.set(-8, 0, 4);
-	scene.add(meshes["tent2"]);
-
-	meshes["campfire1"].position.set(-5, 0, 1);
-	meshes["campfire2"].position.set(-8, 0, 1);
-
-	scene.add(meshes["campfire1"]);
-	scene.add(meshes["campfire2"]);
-
-	meshes["pirateship"].position.set(-11, -1, 1);
-	meshes["pirateship"].rotation.set(0, Math.PI, 0); // Rotate it to face the other way.
-	scene.add(meshes["pirateship"]);
+	meshes["tastatura"].position.set(0, 0,0);
+	meshes["tastatura"].rotation.set(0, Math.PI, 0); // Rotate it to face the other way.
+	scene.add(meshes["tastatura"]);
 }
 
 function animate(){
@@ -200,11 +143,8 @@ function animate(){
 
 	requestAnimationFrame(animate);
 
-	mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.02;
-	crate.rotation.y += 0.01;
 	// Uncomment for absurdity!
-	 meshes["pirateship"].rotation.z += 0.01;
+	 //meshes["pirateship"].rotation.z += 0.01;
 	 controls = new THREE.OrbitControls(camera, renderer.domElement);
 					 controls.enableDamping = true;
 					 controls.dampingFactor = 0.25;

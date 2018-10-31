@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link rel="stylesheet" type="text/css" href="theme.css"/> 
-<title>prosti</title>
+ <link rel="stylesheet" type="text/css" href="theme.css"/>
+<title>E</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'/>
@@ -10,20 +10,28 @@
 	<link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
 
 
-  
+
    <meta charset="utf-8">
-	<script src="babylon.custom.js"></script>
+   		<script type="text/javascript" src="three.min.js" ></script>
+
+		<script type="text/javascript" src="MTLLoader.js" ></script>
+		<script type="text/javascript" src="OBJLoader.js" ></script>
+		   <script src="OrbitControls.js"></script>
+
+		<script type="text/javascript" src="demo.js" ></script>
+
 	    <style>
         html, body {
             width:100%;
             height  : 100%;
             margin  : 0;
             padding : 0;
-			color: #59497c;
-			background-color: #ff9f3f;
+		color: #bc0000;
+			background-color: #142f63;
 			position: absolute;
-			
-			
+
+
+
         }
         #renderCanvas {
             width   : 100%;
@@ -32,70 +40,90 @@
             padding : 0;
             touch-action: none;
         }
+        body { font-size: 24px; }
+        .jumbotron {
+   background-image: url("tastatura.png");
+ background:#1e293d}
     </style>
 
-	
+
 
 <script src="script.js"></script>
 </head>
 <body>
 <header class="container">
-       <div class="row">   
-       <h1 class="col-sm-4">Pegazuz(nume in curs de delet) <b>E</b></h1>
+       <div class="row">
+       <h1 class="col-sm-4">Pegazuz/Artemis<b>E</b></h1>
        <nav class= "col-sm-8 text-right">
-         <p ><a href="index.html" style="text-decoration:none;"> Romana</a></p>
-         <p ><a href="indexe.html" style="text-decoration:none;">English</a></p>
+         <p ><a href="index.html" style="text-decoration:none;"> Acasa</a></p>
+         <p ><a href="despre.html" style="text-decoration:none;">Despre/Contact</a></p>
+          <p ><a href="cumpara.html" style="text-decoration:none;-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+	background-color:#d0451b;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;">Comanda</a></p>
        </nav>
        </div>
    </header>
 
-  <section class="jumbotron" ; style="background:#ff6a00;">
-  <br><br><br><br><br>
-    <div class="container">
-      <div class="row text-center">
-		<H1 style="font-size:100px;"><font>Firma </font><font style="font-family: 'Spectral SC', serif;" color=black>Prost <font style="font-family:'Zilla Slab', serif;" color=#bc0000;><b>E</b></font></font></h1>
-      </div>
-    </div>
-  </section>
-<div class="container-fluid"> 
+   <div class="jumbotron jumbotron-fluid">
+     <div class="container">
+    <img src="tastatura.png"/>
+     </div>
+   </div>
+<div class="container-fluid">
   <div class="row text-center">
-	<h2>Firma care face chestii si <u>prosti</u></h2>
+	<h2>Perifierice si componente</h2>
   </div>
   <div class="row">
 <br>
- <hr style="width: 100%; color: #59497c; height: 2px; background-color: #59497c;" /> 
+ <hr style="width: 100%; color: #59497c; height: 2px; background-color: #59497c;" />
 <br>
   </div>
  <div class="row-fluid">
   <div class="col-md-2">
-		<img src="sigla.jpg" class="img-rounded" alt="untitledhlpr" width="180" height="180">
+		<img src="sigla.jpg" class="img-rounded" alt="sigla" width="180" height="180">
 	</div>
    <div class="col-md-10">
 		<br>
 		<br>
-		<h2>               Chestii pe care o sa le sterg?<h2>
+		<h2>             Producem sau vindem:<h2>
    </div>
  </div>
   <div class="row-fluid">
-	<div class="col-md-2"
-	<p>prost<p>
-	<p>Clasa a 10-a</p>
-	<p>Liceul Ovidius</p>
+	<div class="col-md-2">
+<p > Tastaturi<p>
+
 	</div>
-	<div class="col-md-2"
-	<p>prost<p>
-	<p>Clasa a 10-a</p>
-	<p>Liceul Ovidius</p>
+	<div class="col-md-2" style="color: :red;">
+<p style="color: :#bc0000;"> Mausi<p>
+
 	</div>
-	<div class="col-md-2"
-	<p>prost<p>
-	<p>Clasa a 10-a</p>
-	<p>Liceul Ovidius</p>
+	<div class="col-md-2">
+<p style="color: :#bc0000;"> Componente PC</p>
+
 	</div>
-	<div class="col-md-2"
-	<p>prost<p>
-	<p>Clasa a 10-a</p>
-	<p>Liceul Ovidius</p>
+	<div class="col-md-2">
+<p style="color: :#bc0000;"> Monitoare<p>
+
 	</div>
   </div>
 </div>
@@ -106,23 +134,23 @@
   <br>
 
 <div class="row text-center">
-	<h2>Model 3d ce reprezinta chestii va rugam ignorati schimbam </h2><br>
+	<h2>Cel mai nou produs: </h2><br>
 </div>
-<script src="../build/three.js"></script>
-<script src="js/loaders/OBJLoader.js"></script>
 
-  <canvas id="renderCanvas"></canvas>
- <script src="viewer.js"></script>
+
+<div id="frame" style="height: 70%;">
+
+</div>
 
   <footer class="container">
     <div class="row">
 	 <div class="col-md-7"> </div>
-	 
+
       <p class="col-md-3"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  Site creat de Popescu Cezar Gabriel ( si trei prosti i guess dar nu deocamdata)</p>
-	 <p>Numar de vizualizari:<a href="http://www.reliablecounter.com" target="_blank"><img src="http://www.reliablecounter.com/count.php?page=cezieu.github.io&digit=style/plain/1/&reloads=0" alt="" title="" border="0"></a><br /><a href="http://" target="_blank" style="font-family: Geneva, Arial; font-size: 3px; color: #330010; text-decoration: none;"></a></p>
+	  @2018 Artemis/Pegazuz</p>
+	 <p>Numar de accesari: <a href="http://www.reliablecounter.com" target="_blank"><img src="http://www.reliablecounter.com/count.php?page=cezieu.github.io&digit=style/plain/1/&reloads=0" alt="" title="" border="0"></a><br /><a href="http://" target="_blank" style="font-family: Geneva, Arial; font-size: 3px; color: #330010; text-decoration: none;"></a></p>
     </div>
-    
+
   </footer>
 
 </body>
