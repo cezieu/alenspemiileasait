@@ -5,7 +5,15 @@ var crate, crateTexture, crateNormalMap, crateBumpMap;
 var keyboard = {};
 
 var USE_WIREFRAME = false;
-
+function effectiveDeviceWidth() {
+  var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+  // iOS returns available pixels, Android returns pixels / pixel ratio
+  // http://www.quirksmode.org/blog/archives/2012/07/more_about_devi.html
+  if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+    deviceWidth = deviceWidth / window.devicePixelRatio;
+  }
+  return deviceWidth;
+}
 var loadingScreen = {
 	scene: new THREE.Scene(),
 	camera: new THREE.PerspectiveCamera(90, 1280/720, 0.1, 100),
@@ -32,7 +40,7 @@ var meshes = {};
 
 function init(){
 	scene = new THREE.Scene();
-	camera = new THREE.PerspectiveCamera(90, window.screen.width/720, 0.1, 1000);
+	camera = new THREE.PerspectiveCamera(90,window.outerWidth/720, 0.1, 1000);
 
 
 	//loadingScreen.box.position.set(0,0,5);
@@ -58,7 +66,7 @@ function init(){
 	scene.add(meshFloor);*/
 
 
-	ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+	ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
 	scene.add(ambientLight);
 
 	light = new THREE.PointLight(0xffffff, 0.8, 18);
@@ -105,7 +113,7 @@ function init(){
 	camera.lookAt(new THREE.Vector3(0,0,0));
 
 	renderer = new THREE.WebGLRenderer();
-	renderer.setSize(window.screen.width, 720)
+	renderer.setSize(window.outerWidth, 720)
 
 	renderer.shadowMap.enabled = true;
 	renderer.shadowMap.type = THREE.BasicShadowMap;
