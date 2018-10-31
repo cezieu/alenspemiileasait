@@ -7,7 +7,7 @@ var keyboard = {};
 var USE_WIREFRAME = false;
 function getRWidth(){
 
-	if(window.screen.orientation==90 || window.screen.orientation==-90) return window.screen.height;
+	if(window.screen.orientation!=0 && window.screen.orientation!=180) return window.screen.height;
 	else return window.screen.width;
 }
 var loadingScreen = {
