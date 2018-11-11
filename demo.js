@@ -17,7 +17,7 @@ var loadingScreen = {
 		new THREE.BoxGeometry(0.5,0.5,0.5),
 		new THREE.MeshBasicMaterial({ color:0x4444ff })
 	)
-};
+};		
 var loadingManager = null;
 var RESOURCES_LOADED = false;
 
